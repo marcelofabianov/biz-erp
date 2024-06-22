@@ -62,11 +62,16 @@ Não deve ter...
 
 - Linguagem Rust
 - Banco de dados Postgres
-- Kafka como broker de mensagens
+- Kafka como broker de mensagens e eventos assíncronos
 - Docker como ambiente de execução
 - Git como versionador
 - CI/CD com pipeline definida GITHUB ACTIONS
-- Monitoramento com Elastic Stack
+- Monitoramento e Logs com Elastic Stack
+- Cache com Redis
+- Hash argon2 para criptografia segura sem reversão
+- GRPC como protocolo de comunicação
+- Auth é feito pelo serviço Gateway/IdentityProvider pelo protocolo OAuth2
+- Autorização é feita pelo serviço IdentityProvider via GRPC seguindo RBAC
 
 ### Atributos de qualidade
 
