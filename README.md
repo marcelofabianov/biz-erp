@@ -6,16 +6,6 @@
 
 BizRetail ERP é um software de gestão B2B (Business to Business) que tem como objetivo principal a gestão de empresas de comércio e varejo. O sistema é composto por módulos que atendem as principais áreas de uma empresa, como: vendas, compras, estoque, financeiro, contábil, fiscal, entre outros.
 
-## Tecnologias
-
-- [Rust](https://www.rust-lang.org/)
-- [PostgreSQL](https://www.postgresql.org/)
-- [Kafka](https://kafka.apache.org/)
-- [gRPC](https://grpc.io/)
-- [Protocol Buffers](https://developers.google.com/protocol-buffers)
-- [OpenTelemetry](https://opentelemetry.io/)
-- [Kong](https://konghq.com/)
-
 ## Arquitetura
 
 Para um detalhamento maior sobre a arquitetura acesse este documento: [Arquitetura](_docs/architecture.md)
@@ -34,3 +24,17 @@ Cada microservice tem sua própria documentação, acesse para mais detalhes:
 
 Para entender quais estudos estão em aberto acesse este documento: [Estudos em aberto](_docs/open_studies.md)
 
+## Tecnologias
+
+- [Rust](https://www.rust-lang.org/)
+- [Go](https://golang.org/)
+- [Node.js](https://nodejs.org/)
+- [PostgreSQL](https://www.postgresql.org/)
+- [MongoDB](https://www.mongodb.com/)
+- [DynamonDB](https://aws.amazon.com/pt/dynamodb/)
+- [Kong](https://konghq.com/)
+- [Kafka](https://kafka.apache.org/)
+- [gRPC](https://grpc.io/)
+- [Protocol Buffers](https://developers.google.com/protocol-buffers)
+- [OpenTelemetry](https://opentelemetry.io/)
+- [ElasticSearch](https://www.elastic.co/)
