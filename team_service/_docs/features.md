@@ -4,6 +4,8 @@ Relação de funcionalidades do serviço de gerenciamento de equipes, cargos, de
 
 ## Features
 
+Conjunto de features do serviço team_service na versão 1.0.0
+
 ### Account (Conta)
 
 - [ ] Criar uma nova conta
