@@ -18,9 +18,11 @@ BizRetail ERP é um software de gestão B2B (Business to Business) que tem como 
 
 ## Arquitetura
 
-O sistema é composto por diversos microserviços que se comunicam através do protocolo gRPC e Kafka. Cada microserviço é responsável por uma área específica. A comunicação entre os microserviços é feita através de eventos, que são publicados em tópicos do Kafka. Cada microserviço é responsável por consumir os eventos que são relevantes para o seu contexto.
+Para um detalhamento maior sobre a arquitetura acesse este documento: [Arquitetura](_docs/architecture.md)
 
 ## Microserviços
+
+Cada microservice tem sua própria documentação, acesse para mais detalhes:
 
 - [Cost Center Service](cost_center_service/README.md)
 - [Client Contractor Service](client_contractor_service/README.md)
@@ -30,44 +32,5 @@ O sistema é composto por diversos microserviços que se comunicam através do p
 
 ### Estudos em aberto
 
-Feature Flags
+Para entender quais estudos estão em aberto acesse este documento: [Estudos em aberto](_docs/open_studies.md)
 
-Uso de serviços para gerenciamento de Features Flags.
-
-opções:
-
-- [Unleash](https://unleash.github.io/)
-- [LaunchDarkly](https://launchdarkly.com/)
-- [ConfigCat](https://configcat.com/)
-- [Flagr](https://checkr.github.io/flagr/)
-- [Togglz](https://www.togglz.org/)
-- [FF4J](https://ff4j.github.io/)
-- [Flipper](https://www.ff4j.org/)
-- [BulletTrain](https://bullet-train.io/)
-
-Secret Manager
-
-Uso de serviços para gerenciamento de segredos.
-
-opções:
-
-- [Vault](https://www.vaultproject.io/)
-- [Confidant](https://lyft.github.io/confidant/)
-- [Sops](https://getsops.io/)
-- [SealedSecrets](https://sealed-secrets.netlify.app/)
-- [Azure Key Vault](https://azure.microsoft.com/pt-br/services/key-vault/)
-- [AWS Secrets Manager](https://aws.amazon.com/pt/secrets-manager/)
-- [GCP Secret Manager](https://cloud.google.com/secret-manager)
-
-Identity and Access Management
-
-Uso de serviços para gerenciamento de identidade e acesso.
-
-opções:
-
-- [Keycloak](https://www.keycloak.org/)
-- [Auth0](https://auth0.com/)
-- [Okta](https://www.okta.com/)
-- [Cognito](https://aws.amazon.com/pt/cognito/)
-- [Azure Active Directory](https://azure.microsoft.com/pt-br/services/active-directory/)
-- [GCP Identity Platform](https://cloud.google.com/identity-platform)
