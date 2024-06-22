@@ -32,13 +32,11 @@ Conjunto de NFRs do serviço team_service na versão 1.0.0
 
 Este serviço deve ser...
 
-- Executado em ambiente Docker
 - Versionado conforme semântica de versionamento
 - Documentado e mantido
 - Mantido pelo versonador GIT
 - Mantido pelo CI/CD conforme pipeline definida
 - Monitorado conforme padrão de monitoramento
-- Desenvolvido em Rust
 
 Deve ter...
 
@@ -50,6 +48,25 @@ Deve ter...
 - Testes de carga
 - Testes de segurança
 - Logs estruturados e centralizados
+
+Não deve ter...
+
+- Dependências desnecessárias
+- Código duplicado
+- Código comentado
+- Código inseguro
+- Código não testado
+- Código não documentado
+
+### Restrições
+
+- Linguagem Rust
+- Banco de dados Postgres
+- Kafka como broker de mensagens
+- Docker como ambiente de execução
+- Git como versionador
+- CI/CD com pipeline definida GITHUB ACTIONS
+- Monitoramento com Elastic Stack
 
 ### Atributos de qualidade
 
