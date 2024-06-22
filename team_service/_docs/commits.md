@@ -52,6 +52,8 @@ git commit -m "feat: Adiciona nova funcionalidade"
 - O nome das branches deve ser escrito em minúsculo e separado por hífen.
 - O nome das branches deve ser curto e objetivo.
 - As branches a seguir devem ser protegidas permitindo apenas merge via pull request: main, develop
+- Cada membro do time deve fazer seu próprio fork do repositório e trabalhar em branches separadas.
+- Cada membro do time deve fazer um pull request para a branch raiz do repositório para o branch da feature que está trabalhando.
 
 ### Merge
 
