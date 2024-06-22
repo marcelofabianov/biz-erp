@@ -7,6 +7,7 @@ Detalhamento das variáveis de ambiente do serviço
 Conjunto de variáveis de ambiente que entraram na versão 1.0.0
 
 - `DATABASE_URL`: URL de conexão com o banco de dados
+- `PRODUCER_ID`: ID do produtor de mensagens
 - `KAFKA_BROKER`: URL do broker de mensagens
 - `KAFKA_GROUP_ID`: ID do grupo de consumidores
 - `KAFKA_TOPIC`: Tópico de mensagens

@@ -6,7 +6,6 @@ Relação de entidades do serviço de gerenciamento de equipes, cargos, departam
 
 Account (Conta)
 
-- **producer_service_id**: `uuid` `required` | ID do serviço produtor
 - **trace_id**: `uuid` `required` | ID do trace
 - **id**: `pk` `int` `unique` `required` | ID da conta
 - **public_id**: `index` `uuid` `unique` `required` | Public ID da conta
@@ -17,6 +16,7 @@ Account (Conta)
 
 Department (Departamento)
 
+- **trace_id**: `uuid` `required` | ID do trace
 - **id**: `pk` `int` `unique` `required` | ID do departamento
 - **public_id**: `index` `uuid` `unique` `required` | Public ID do departamento
 - **account_id**: `fk` `int` `required` | ID da conta
@@ -29,6 +29,7 @@ Department (Departamento)
 
 Position (Cargo)
 
+- **trace_id**: `uuid` `required` | ID do trace
 - **id**: `pk` `int` `unique` `required` | ID do cargo
 - **public_id**: `index` `uuid` `unique` `required` | Public ID do cargo
 - **department_id**: `fk` `int` `required` | ID do departamento
@@ -41,6 +42,7 @@ Position (Cargo)
 
 Role (Função)
 
+- **trace_id**: `uuid` `required` | ID do trace
 - **id**: `pk` `int` `unique` `required` | ID da função
 - **public_id**: `index` `uuid` `unique` `required` | Public ID da função
 - **name**: `string` `required` | Nome da função
@@ -52,6 +54,7 @@ Role (Função)
 
 Team (Equipe)
 
+- **trace_id**: `uuid` `required` | ID do trace
 - **id**: `pk` `int` `unique` `required` | ID da equipe
 - **public_id**: `index` `uuid` `unique` `required` | Public ID da equipe
 - **account_id**: `fk` `int` `required` | ID da conta
@@ -64,7 +67,6 @@ Team (Equipe)
 
 Person (Pessoa)
 
-- **producer_service_id**: `uuid` `required` | ID do serviço produtor
 - **trace_id**: `uuid` `required` | ID do trace
 - **id**: `pk` `int` `unique` `required` | ID da pessoa
 - **public_id**: `index` `uuid` `unique` `required` | Public ID da pessoa
@@ -102,8 +104,6 @@ Person (Pessoa)
 - Pessoa (Person) pertence a um Departamento (Department)
 
 ## Conceitos de atributos específicos
-
-- **producer_service_id**: O producer_service_id é um identificador único associado ao microserviço que atua como produtor de dados ou eventos. Esse ID pode ser utilizado para correlacionar informações específicas geradas por um serviço em particular, ajudando na gestão e no monitoramento de operações distribuídas.
 
 - **trace_id: O trace_id é um identificador único e global utilizado para rastrear o fluxo de uma transação ou operação através de múltiplos serviços em uma arquitetura distribuída. Ele permite correlacionar eventos e logs relacionados a uma mesma solicitação ou transação, facilitando o diagnóstico de problemas, a análise de desempenho e o monitoramento de sistemas distribuídos.
 
