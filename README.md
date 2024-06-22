@@ -14,12 +14,12 @@ Para um detalhamento maior sobre a arquitetura acesse este documento: [Arquitetu
 
 Cada microservice tem sua própria documentação, acesse para mais detalhes:
 
-- [Cost Center Service](cost_center_service/README.md)
-- [Client Contractor Service](client_contractor_service/README.md)
-- [Notifications Service](notifications_service/README.md)
-- [Identity Provider Service](identity_provider_service/README.md)
-- [Team Service](team_service/README.md)
-- [Audit Service](audit_service/README.md)
+- [Cost Center Service](cost_center_service/README.md) `Node.js`
+- [Client Contractor Service](client_contractor_service/README.md) `Node.js`
+- [Notifications Service](notifications_service/README.md) `Go`
+- [Identity Provider Service](identity_provider_service/README.md) `Go`
+- [Team Service](team_service/README.md) `Rust`
+- [Audit Service](audit_service/README.md) `Rust`
 
 ### Estudos em aberto
 
