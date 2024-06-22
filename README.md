@@ -2,6 +2,7 @@
 
 **Este projeto é um estudo de aplicação de arquitetura de microsserviços feito por mim não deve ser comercializado!!!**
 **Toda a documentação é fictícia e não deve ser levada a sério!**
+**O projeto esta sendo mantido por um repositório apenas para facilitar o desenvolvimento feito por mim!**
 
 BizRetail ERP é um software de gestão B2B (Business to Business) que tem como objetivo principal a gestão de empresas de comércio e varejo. O sistema é composto por módulos que atendem as principais áreas de uma empresa, como: vendas, compras, estoque, financeiro, contábil, fiscal, entre outros.
 
