@@ -68,4 +68,3 @@ Conjunto de features do serviço team_service na versão 1.0.0
 - [ ] Disparar eventos de atualização de pessoa
 - [ ] Disparar eventos de remoção de pessoa
 - [ ] Disparar eventos de inativação/reativação de pessoa
-

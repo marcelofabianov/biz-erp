@@ -5,34 +5,13 @@ Microservice responsável pelo gerenciamento de equipes, cargos, departamentos e
 ## Documentação
 
 - [Features](./_docs/features.md)
+- [Requisitos não funcionais](./_docs/nfr.md)
 - [Entidades](./_docs/entities.md)
 - [Eventos](./_docs/events.md)
 - [GRPC](./_docs/grpc.md)
+- [Logs](./_docs/logs.md)
+- [Testes](./_docs/tests.md)
+- [ENV](./_docs/environment.md)
+- [CI/CD](./_docs/cicd.md)
 
-## Pre-requisites
-
-- [Docker](https://www.docker.com/)
-- [Git](https://git-scm.com/)
-
-## Tecnologias
-
-- [Rust](https://www.rust-lang.org/)
-- [Postgres](https://www.postgresql.org/)
-- [Kafka](https://kafka.apache.org/)
-
-## Dependências
-
-- [SQLx](https://crates.io/crates/sqlx)
-- [Kafka](https://crates.io/crates/kafka)
-- [Tokio](https://crates.io/crates/tokio)
-- [Chrono](https://crates.io/crates/chrono)
-- [dotenv](https://crates.io/crates/dotenv)
-- [serde](https://crates.io/crates/serde)
-- [serde_json](https://crates.io/crates/serde_json)
-- [uuid](https://crates.io/crates/uuid)
-
-## Instalação e execução
-
-```bash
-docker compose up -d
-```
+**Importante:** A documentação está em constante evolução.
