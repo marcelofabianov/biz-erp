@@ -38,10 +38,20 @@ git commit -m "feat: Adiciona nova funcionalidade"
 
 ### Branches
 
-- **master**: Branch principal, contém a versão de produção.
+- **main**: Branch principal, contém a versão de produção.
 - **develop**: Branch de desenvolvimento, contém a versão de homologação.
 - **feature**: Branch de desenvolvimento de novas funcionalidades.
 - **hotfix**: Branch de correção de bugs em produção.
+
+**Importante**:
+
+- As branches de feature e hotfix devem ser criadas a partir da branch develop.
+- As branches de feature e hotfix devem ser mescladas na branch develop.
+- A branch develop deve ser mesclada na branch main.
+- O nome das branches deve seguir o padrão `tipo/nome`, onde `tipo` é o tipo da branch e `nome` é o nome da branch.
+- O nome das branches deve ser escrito em minúsculo e separado por hífen.
+- O nome das branches deve ser curto e objetivo.
+- As branches a seguir devem ser protegidas permitindo apenas merge via pull request: main, develop
 
 ### Merge
 
@@ -51,7 +61,7 @@ git commit -m "feat: Adiciona nova funcionalidade"
 
 ### Tags
 
-- As tags devem ser criadas a partir da branch master.
+- As tags devem ser criadas a partir da branch main.
 - As tags devem seguir o padrão `vX.Y.Z`, onde `X` é a versão principal, `Y` é a versão secundária e `Z` é a versão de correção.
 
 ### Versionamento
