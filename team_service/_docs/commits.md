@@ -22,6 +22,7 @@ Os commits devem seguir o padrão de mensagem definido pelo [Conventional Commit
 - A mensagem deve ser clara e objetiva, descrevendo o que foi feito.
 - A mensagem deve ter no máximo 100 caracteres.
 - A mensagem deve ser escrita em português após o tipo.
+- Ao final de cada mensagem de commit deve ser adicionado o número da issue relacionada ao commit e o nome do microserviço. No "Assunto do commit".
 
 **Importante**:
 

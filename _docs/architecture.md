@@ -74,7 +74,50 @@ Contém os dados específicos associados ao evento, como informações sobre uma
 
 **Metadata**
 
-Os metadados são informações adicionais que oferecem contexto e detalhes relevantes sobre o evento. Eles podem variar de acordo com o tipo específico de evento e suas necessidades particulares. Os dados obrigatórios incluem o `owner_id`, `owner_ip`, `owner_role`, e `owner_type`. O termo "owner" refere-se ao agente responsável por gerar o evento, podendo ser um usuário ou um serviço. O owner_type especifica se o agente é um usuário ou um serviço. `owner_role` indica o papel desempenhado pelo agente na geração do evento, enquanto `owner_ip` registra o endereço IP do agente. Além disso, os metadados também podem incluir a versão do esquema do evento `event_schema_version`, fundamental para garantir a consistência e compatibilidade na evolução do software. O `ownership_id` identifica o proprietário dos dados relacionados ao evento, facilitando a organização e garantindo conformidade com regulamentações como o LGPD.
+Os metadados são informações adicionais que oferecem contexto e detalhes relevantes sobre o evento. Eles podem variar de acordo com o tipo específico de evento e suas necessidades particulares. Existem campos obrigatório a serem informado será apresentado no próximo tópico.
+
+## Arquitetura de Event Sourcing
+
+O Event Sourcing é uma técnica que consiste em armazenar todos os eventos que ocorrem no sistema, permitindo reconstruir o estado atual a partir do histórico de eventos. Essa abordagem é útil para garantir a consistência e a integridade dos dados, além de possibilitar a auditoria e a rastreabilidade de todas as operações realizadas no sistema.
+
+Para implementar o Event Sourcing, cada microserviço algo manipular registros em seu banco de dados deverá gerar um evento correspondente, que será enviado para o kafka e consumido pelo microservice audit. O microservice audit será responsável por armazenar os eventos em um banco de dados dedicado, garantindo a rastreabilidade e a integridade dos dados.
+
+Nenhum registro deve ser excluído do banco de dados do audit service, em vez disso será versionado e marcado como desativado.
+Isso garante que todos os eventos sejam mantidos para fins de auditoria e rastreabilidade.
+
+Cada registro no banco de dados do audit service terá os campos para garantir a implementação do Event Sourcing são:
+
+- **action_type**: Tipo de ação que gerou o evento, como `new`, `update`, `delete`. `disable`, `enable`.
+- **action_at**: Data e hora em que a ação foi realizada.
+- **version**: Versão do registro.
+- **is_active**: Indica se o registro está ativo ou desativado.
+
+A arquitetura de Event Sourcing é composta por três componentes principais:
+
+1. **Producer Service**: Responsável por gerar eventos e enviá-los para o Kafka.
+2. **Kafka**: Plataforma de streaming utilizada para troca de mensagens assíncronas entre os microservices.
+3. **Audit Service**: Microserviço responsável por consumir os eventos do Kafka e armazená-los em um banco de dados dedicado.
+
+## Estrutura de Eventos
+
+Os eventos gerados pelos microservices devem seguir uma estrutura padronizada para garantir a consistência e a interoperabilidade entre os sistemas. A estrutura de eventos deve conter os seguintes campos:
+
+- **producer_service**: Identifica o microserviço que gerou o evento.
+- **producer_service_id**: ID único atribuído ao produtor do evento.
+- **trace_id**: ID único utilizado para rastrear o fluxo de um evento.
+- **timestamp**: Data e hora em que o evento foi gerado.
+- **event_type**: Tipo de evento que ocorreu.
+- **payload**: Dados específicos associados ao evento.
+- **metadata**: Informações adicionais sobre o evento.
+
+Os metadados são informações adicionais que oferecem contexto e detalhes relevantes sobre o evento. Eles podem variar de acordo com o tipo específico de evento e suas necessidades particulares. Existem campos obrigatórios a serem inseridos:
+
+- **owner_id**: ID do agente responsável por gerar o evento.
+- **owner_ip**: Endereço IP do agente responsável pelo evento.
+- **owner_role**: Papel desempenhado pelo agente na geração do evento.
+- **owner_type**: Tipo do agente responsável pelo evento. Poder ser um `user` ou `service`.
+- **event_schema_version**: Versão do esquema do evento.
+- **ownership_id**: ID do proprietário dos dados relacionados ao evento. Para comprimento das normativas do LGPD.
 
 ## Microservice Audit e Tabela Ownership
 
