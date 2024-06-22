@@ -15,5 +15,6 @@ Microservice responsável pelo gerenciamento de equipes, cargos, departamentos e
 - [CI/CD](./_docs/cicd.md)
 - [Commits](./_docs/commits.md)
 - [Arquitetura](./_docs/architecture.md)
+- [Gateway](./_docs/gateway.md)
 
 **Importante:** A documentação está em constante evolução.
