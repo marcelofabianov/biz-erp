@@ -2,9 +2,12 @@
 
 Microservice responsável pelo gerenciamento de equipes, cargos, departamentos e pessoas.
 
-## Features
+## Documentação
 
-- [Detalhes](./_docs/features.md)
+- [Features](./_docs/features.md)
+- [Entidades](./_docs/entities.md)
+- [Eventos](./_docs/events.md)
+- [GRPC](./_docs/grpc.md)
 
 ## Pre-requisites
 
