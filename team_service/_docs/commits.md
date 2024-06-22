@@ -26,8 +26,8 @@ Os commits devem seguir o padrão de mensagem definido pelo [Conventional Commit
 **Importante**:
 
 - Caso o commit não se encaixe em nenhum dos tipos acima, utilize o tipo `chore`.
-- Caso o commit seja de algo complexa crie mensagem mais detalhada com `git commit -a`
-- Caso o commit seja de algo feature simples, crie mensagem curta com `git commit -m`
+- Caso o commit seja de algo complexo crie mensagem mais detalhada com `git commit -a`
+- Caso o commit seja de algo simples, crie mensagem curta com `git commit -m`
 
 ### Exemplo
 
