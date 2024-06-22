@@ -6,7 +6,7 @@ Detalhamento da arquiteura do serviço
 
 O serviço é composto por diversas camadas, cada uma com sua responsabilidade.
 
-- **grpc**: Comunicação entre os serviços.
+- **grpc**: Protocolo de comunicação entre o servico e o gateway.
 - **use_case**: Regras de negócio.
 - **repository**: Acesso e manipulação de dados.
 - **log**: Manipulação de logs.
