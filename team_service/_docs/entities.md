@@ -6,6 +6,7 @@ Relação de entidades do serviço de gerenciamento de equipes, cargos, departam
 
 Account (Conta)
 
+- **ownership_id**: `account` | Propriedade dos dados LGPD
 - **trace_id**: `uuid` `required` | ID do trace
 - **id**: `pk` `int` `unique` `required` | ID da conta
 - **public_id**: `index` `uuid` `unique` `required` | Public ID da conta
@@ -16,6 +17,7 @@ Account (Conta)
 
 Department (Departamento)
 
+- **ownership_id**: `account` | Propriedade dos dados LGPD
 - **trace_id**: `uuid` `required` | ID do trace
 - **id**: `pk` `int` `unique` `required` | ID do departamento
 - **public_id**: `index` `uuid` `unique` `required` | Public ID do departamento
@@ -29,6 +31,7 @@ Department (Departamento)
 
 Position (Cargo)
 
+- **ownership_id**: `account` | Propriedade dos dados LGPD
 - **trace_id**: `uuid` `required` | ID do trace
 - **id**: `pk` `int` `unique` `required` | ID do cargo
 - **public_id**: `index` `uuid` `unique` `required` | Public ID do cargo
@@ -42,6 +45,7 @@ Position (Cargo)
 
 Role (Função)
 
+- **ownership_id**: `account` | Propriedade dos dados LGPD
 - **trace_id**: `uuid` `required` | ID do trace
 - **id**: `pk` `int` `unique` `required` | ID da função
 - **public_id**: `index` `uuid` `unique` `required` | Public ID da função
@@ -54,6 +58,7 @@ Role (Função)
 
 Team (Equipe)
 
+- **ownership_id**: `account` | Propriedade dos dados LGPD
 - **trace_id**: `uuid` `required` | ID do trace
 - **id**: `pk` `int` `unique` `required` | ID da equipe
 - **public_id**: `index` `uuid` `unique` `required` | Public ID da equipe
@@ -67,6 +72,7 @@ Team (Equipe)
 
 Person (Pessoa)
 
+- **ownership_id**: `account` | Propriedade dos dados LGPD
 - **trace_id**: `uuid` `required` | ID do trace
 - **id**: `pk` `int` `unique` `required` | ID da pessoa
 - **public_id**: `index` `uuid` `unique` `required` | Public ID da pessoa
@@ -105,6 +111,6 @@ Person (Pessoa)
 
 ## Conceitos de atributos específicos
 
-- **trace_id: O trace_id é um identificador único e global utilizado para rastrear o fluxo de uma transação ou operação através de múltiplos serviços em uma arquitetura distribuída. Ele permite correlacionar eventos e logs relacionados a uma mesma solicitação ou transação, facilitando o diagnóstico de problemas, a análise de desempenho e o monitoramento de sistemas distribuídos.
+- **ownership_id: O ownership_id é um atributo que indica a propriedade dos dados de acordo com a LGPD (Lei Geral de Proteção de Dados). Ele é utilizado para identificar a entidade responsável pela gestão e proteção dos dados, garantindo a conformidade com a legislação de proteção de dados pessoais.
 
-Esses atributos são fundamentais para promover a visibilidade, a rastreabilidade e o controle dentro de ambientes complexos de microservices, proporcionando uma compreensão clara do fluxo de dados e operações através de diferentes componentes do sistema.
+- **trace_id: O trace_id é um identificador único e global utilizado para rastrear o fluxo de uma transação ou operação através de múltiplos serviços em uma arquitetura distribuída. Ele permite correlacionar eventos e logs relacionados a uma mesma solicitação ou transação, facilitando o diagnóstico de problemas, a análise de desempenho e o monitoramento de sistemas distribuídos.

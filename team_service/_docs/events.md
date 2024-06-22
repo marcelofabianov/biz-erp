@@ -47,6 +47,7 @@ Os eventos emitidos devem seguir um schema específico.
     "user_id": "789",
     "user_role": "admin",
     "user_ip": "192.168.1.100",
+    "ownership_id": "1b08116e-74ff-4e71-8a17-26011cfea33f",
   }
 }
 ```
@@ -72,6 +73,7 @@ Os eventos emitidos devem seguir um schema específico.
     "user_id": "789",
     "user_role": "admin",
     "user_ip": "192.168.1.100",
+    "ownership_id": "1b08116e-74ff-4e71-8a17-26011cfea33f",
   }
 }
 ```
@@ -122,6 +124,7 @@ Os eventos emitidos devem seguir um schema específico.
     "user_id": "789",
     "user_role": "admin",
     "user_ip": "192.168.1.100",
+    "ownership_id": "1b08116e-74ff-4e71-8a17-26011cfea33f",
   }
 }
 ```
@@ -147,6 +150,7 @@ Os eventos emitidos devem seguir um schema específico.
     "user_id": "789",
     "user_role": "admin",
     "user_ip": "192.168.1.100",
+    "ownership_id": "1b08116e-74ff-4e71-8a17-26011cfea33f",
   }
 }
 ```
@@ -173,6 +177,7 @@ Os eventos emitidos devem seguir um schema específico.
     "user_id": "789",
     "user_role": "admin",
     "user_ip": "192.168.1.100",
+    "ownership_id": "1b08116e-74ff-4e71-8a17-26011cfea33f",
   }
 }
 ```
@@ -199,6 +204,7 @@ Os eventos emitidos devem seguir um schema específico.
     "user_id": "789",
     "user_role": "admin",
     "user_ip": "192.168.1.100",
+    "ownership_id": "1b08116e-74ff-4e71-8a17-26011cfea33f",
   }
 }
 ```
@@ -223,6 +229,7 @@ Os eventos emitidos devem seguir um schema específico.
     "user_id": "789",
     "user_role": "admin",
     "user_ip": "192.168.1.100",
+    "ownership_id": "1b08116e-74ff-4e71-8a17-26011cfea33f",
   }
 }
 ```
@@ -247,6 +254,7 @@ Os eventos emitidos devem seguir um schema específico.
     "user_id": "789",
     "user_role": "admin",
     "user_ip": "192.168.1.100",
+    "ownership_id": "1b08116e-74ff-4e71-8a17-26011cfea33f",
   }
 }
 ```
@@ -271,6 +279,7 @@ Os eventos emitidos devem seguir um schema específico.
     "user_id": "789",
     "user_role": "admin",
     "user_ip": "192.168.1.100",
+    "ownership_id": "1b08116e-74ff-4e71-8a17-26011cfea33f",
   }
 }
 ```
