@@ -1,19 +1,23 @@
 # Team Service
 
-Microservice responsible for managing teams.
+Microservice responsável pelo gerenciamento de equipes, cargos, departamentos e pessoas.
 
-## Requirements
+## Features
+
+- [Detalhes](./_docs/features.md)
+
+## Pre-requisites
 
 - [Docker](https://www.docker.com/)
 - [Git](https://git-scm.com/)
 
-## Tecnologies
+## Tecnologias
 
 - [Rust](https://www.rust-lang.org/)
 - [Postgres](https://www.postgresql.org/)
 - [Kafka](https://kafka.apache.org/)
 
-## Dependencies
+## Dependências
 
 - [SQLx](https://crates.io/crates/sqlx)
 - [Kafka](https://crates.io/crates/kafka)
@@ -24,7 +28,7 @@ Microservice responsible for managing teams.
 - [serde_json](https://crates.io/crates/serde_json)
 - [uuid](https://crates.io/crates/uuid)
 
-## Running
+## Instalação e execução
 
 ```bash
 docker compose up -d
