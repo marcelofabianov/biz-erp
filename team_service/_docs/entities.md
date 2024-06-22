@@ -6,16 +6,17 @@ Relação de entidades do serviço de gerenciamento de equipes, cargos, departam
 
 Account (Conta)
 
-- **service_id**: `fk` `uuid` `required` | ID do serviço
+- **producer_service_id**: `uuid` `required` | ID do serviço produtor
+- **trace_id**: `uuid` `required` | ID do trace
 - **id**: `pk` `int` `unique` `required` | ID da conta
 - **public_id**: `index` `uuid` `unique` `required` | Public ID da conta
 - **name**: `string` `required` | Nome da conta
 - **document_registry**: `string` `required` | Registro do documento da conta
 - **disabled_at**: `datetime` `optional` | Data de desativação da conta
+- **deleted_at**: `datetime` `optional` | Data de exclusão da conta
 
 Department (Departamento)
 
-- **service_id**: `fk` `uuid` `required` | ID do serviço
 - **id**: `pk` `int` `unique` `required` | ID do departamento
 - **public_id**: `index` `uuid` `unique` `required` | Public ID do departamento
 - **account_id**: `fk` `int` `required` | ID da conta
@@ -28,7 +29,6 @@ Department (Departamento)
 
 Position (Cargo)
 
-- **service_id**: `fk` `uuid` `required` | ID do serviço
 - **id**: `pk` `int` `unique` `required` | ID do cargo
 - **public_id**: `index` `uuid` `unique` `required` | Public ID do cargo
 - **department_id**: `fk` `int` `required` | ID do departamento
@@ -41,7 +41,6 @@ Position (Cargo)
 
 Role (Função)
 
-- **service_id**: `fk` `uuid` `required` | ID do serviço
 - **id**: `pk` `int` `unique` `required` | ID da função
 - **public_id**: `index` `uuid` `unique` `required` | Public ID da função
 - **name**: `string` `required` | Nome da função
@@ -53,7 +52,6 @@ Role (Função)
 
 Team (Equipe)
 
-- **service_id**: `fk` `uuid` `required` | ID do serviço
 - **id**: `pk` `int` `unique` `required` | ID da equipe
 - **public_id**: `index` `uuid` `unique` `required` | Public ID da equipe
 - **account_id**: `fk` `int` `required` | ID da conta
@@ -66,7 +64,8 @@ Team (Equipe)
 
 Person (Pessoa)
 
-- **service_id**: `fk` `uuid` `required` | ID do serviço
+- **producer_service_id**: `uuid` `required` | ID do serviço produtor
+- **trace_id**: `uuid` `required` | ID do trace
 - **id**: `pk` `int` `unique` `required` | ID da pessoa
 - **public_id**: `index` `uuid` `unique` `required` | Public ID da pessoa
 - **account_id**: `fk` `int` `required` | ID da conta
@@ -101,3 +100,11 @@ Person (Pessoa)
 - Pessoa (Person) pertence a uma Função (Role)
 - Pessoa (Person) pertence a um Cargo (Position)
 - Pessoa (Person) pertence a um Departamento (Department)
+
+## Conceitos de atributos específicos
+
+- **producer_service_id**: O producer_service_id é um identificador único associado ao microserviço que atua como produtor de dados ou eventos. Esse ID pode ser utilizado para correlacionar informações específicas geradas por um serviço em particular, ajudando na gestão e no monitoramento de operações distribuídas.
+
+- **trace_id: O trace_id é um identificador único e global utilizado para rastrear o fluxo de uma transação ou operação através de múltiplos serviços em uma arquitetura distribuída. Ele permite correlacionar eventos e logs relacionados a uma mesma solicitação ou transação, facilitando o diagnóstico de problemas, a análise de desempenho e o monitoramento de sistemas distribuídos.
+
+Esses atributos são fundamentais para promover a visibilidade, a rastreabilidade e o controle dentro de ambientes complexos de microservices, proporcionando uma compreensão clara do fluxo de dados e operações através de diferentes componentes do sistema.
