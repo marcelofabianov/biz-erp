@@ -19,6 +19,7 @@ Cada microservice tem sua própria documentação, acesse para mais detalhes:
 - [Notifications Service](notifications_service/README.md)
 - [Identity Provider Service](identity_provider_service/README.md)
 - [Team Service](team_service/README.md)
+- [Audit Service](audit_service/README.md)
 
 ### Estudos em aberto
 

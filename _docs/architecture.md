@@ -8,11 +8,12 @@ O projeto consiste na implementação de uma arquitetura de microservices distri
 
 **Microservices:**
 
-- [Cost Center Service](cost_center_service/README.md)
-- [Client Contractor Service](client_contractor_service/README.md)
-- [Notifications Service](notifications_service/README.md)
-- [Identity Provider Service](identity_provider_service/README.md)
-- [Team Service](team_service/README.md)
+- [Cost Center Service](../cost_center_service/README.md)
+- [Client Contractor Service](../client_contractor_service/README.md)
+- [Notifications Service](../notifications_service/README.md)
+- [Identity Provider Service](../identity_provider_service/README.md)
+- [Team Service](../team_service/README.md)
+- [Audit Service](../audit_service/README.md)
 
 **API Gateway:**
 
