@@ -5,7 +5,7 @@ Microservice responsável pelo gerenciamento de equipes, cargos, departamentos e
 ## Documentação
 
 - [Features](./_docs/features.md)
-- [Requisitos não funcionais](./_docs/nfr.md)
+- [NFRs](./_docs/nfr.md)
 - [Entidades](./_docs/entities.md)
 - [Eventos](./_docs/events.md)
 - [GRPC](./_docs/grpc.md)

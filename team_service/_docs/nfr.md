@@ -30,32 +30,30 @@ Conjunto de NFRs do serviço team_service na versão 1.0.0
 
 ### Requisitos
 
-- Este serviço deve ser capaz de escalar horizontalmente
-- Este serviço deve ser capaz de se comunicar com outros serviços
-- Este serviço deve ter seu banco de dados relacional
-- Este serviço deve ter camada de comunicação GRPC
-- Este serviço deve emitir eventos para um broker de mensagens
-- Este serviço deve ouvir eventos de um broker de mensagens
-- Este serviço deve ter logs estruturados conforme padrão da especificação
-- Este serviço deve ter métricas de saúde e performance
-- Este serviço deve ter testes unitários
-- Este serviço deve ter testes de integração
-- Este serviço deve ter testes de contrato
-- Este serviço deve ter testes de carga
-- Este serviço deve ter testes de segurança
+Este serviço deve ser...
 
-### Restrições
+- Executado em ambiente Docker
+- Versionado conforme semântica de versionamento
+- Documentado e mantido
+- Mantido pelo versonador GIT
+- Mantido pelo CI/CD conforme pipeline definida
+- Monitorado conforme padrão de monitoramento
+- Desenvolvido em Rust
 
-- Este serviço deve ser desenvolvido em Rust
-- Este serviço deve ser executado em ambiente Docker
-- Este serviço deve ser versionado conforme semântica de versionamento
-- Este serviço deve ser documentado conforme padrão OpenAPI
-- Este serviço deve ser publicado em um repositório Git
-- Este serviço deve ser CI/CD conforme pipeline definida
-- Este serviço deve ser monitorado conforme padrão de monitoramento
-- Este serviço deve ser orquestrado conforme padrão de orquestração
+Deve ter...
+
+- Banco de dados Postgres
+- Conexão com Kafka
+- Testes unitários
+- Testes de integração
+- Testes de contrato
+- Testes de carga
+- Testes de segurança
+- Logs estruturados e centralizados
 
 ### Atributos de qualidade
+
+Atributos de qualidade que buscamos:
 
 - Disponibilidade
 - Confiabilidade
