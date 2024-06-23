@@ -1,9 +1,11 @@
 mod db;
 mod models;
-mod repositories;
+mod repository;
+mod use_case;
 
-use models::{Account, AccountCreateDto};
-use repositories::AccountRepository;
+use models::AccountCreateDto;
+use repository::AccountRepository;
+use use_case::CreateAccount;
 use uuid::Uuid;
 
 #[tokio::main]
@@ -15,17 +17,12 @@ async fn main() {
 
     let dto = AccountCreateDto::new(ownership_id, trace_id, name, document_registry);
 
-    let account = Account::new(dto);
-
     let pool = db::connect().await.expect("Failed to connect to database");
-
     let account_repository = AccountRepository::new(pool);
 
-    println!("Creating account: {:?}", account);
+    let create_account = CreateAccount::new(account_repository);
 
-    let account = account_repository.create(account).await;
-
-    match account {
+    match create_account.execute(dto).await {
         Ok(account) => {
             println!("Account created: {:?}", account);
         }

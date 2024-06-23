@@ -1,6 +1,5 @@
-use sqlx::{Error, PgPool};
-
 use crate::models::Account;
+use sqlx::{Error, PgPool};
 
 pub struct AccountRepository {
     pool: PgPool,
@@ -11,7 +10,7 @@ impl AccountRepository {
         Self { pool }
     }
 
-    pub async fn create(&self, account: Account) -> Result<Account, Error> {
+    pub async fn create(&self, account: &Account) -> Result<Account, Error> {
         let inserted_account = sqlx::query_as!(
             Account,
             r#"
