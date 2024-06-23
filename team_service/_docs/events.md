@@ -52,10 +52,11 @@ ID da conta quando zero é uma nova conta criada o banco de dados irá gerar um 
   "metadata": {
     "event_schema_version": "1.0",
     "environment": "production",
-    "user_id": "789",
-    "user_role": "admin",
-    "user_ip": "192.168.1.100",
-    "ownership_id": "1b08116e-74ff-4e71-8a17-26011cfea33f"
+    "owner_id": "789",
+    "owner_role": "admin",
+    "owner_ip": "192.168.1.100",
+    "owner_type": "user",
+    "ownership_id": "1b08116e-74ff-4e71-8a17-26011cfea33f",
   }
 }
 
@@ -79,9 +80,10 @@ ID da conta quando zero é uma nova conta criada o banco de dados irá gerar um 
   "metadata": {
     "event_schema_version": "1.0",
     "environment": "production",
-    "user_id": "789",
-    "user_role": "admin",
-    "user_ip": "192.168.1.100",
+    "owner_id": "789",
+    "owner_role": "admin",
+    "owner_ip": "192.168.1.100",
+    "owner_type": "user",
     "ownership_id": "1b08116e-74ff-4e71-8a17-26011cfea33f",
   }
 }
@@ -105,9 +107,10 @@ ID da conta quando zero é uma nova conta criada o banco de dados irá gerar um 
   "metadata": {
     "event_schema_version": "1.0",
     "environment": "production",
-    "user_id": "789",
-    "user_role": "admin",
-    "user_ip": "192.168.1.100",
+    "owner_id": "789",
+    "owner_role": "admin",
+    "owner_ip": "192.168.1.100",
+    "owner_type": "user",
     "ownership_id": "1b08116e-74ff-4e71-8a17-26011cfea33f",
   }
 }
@@ -131,9 +134,10 @@ ID da conta quando zero é uma nova conta criada o banco de dados irá gerar um 
   "metadata": {
     "event_schema_version": "1.0",
     "environment": "production",
-    "user_id": "789",
-    "user_role": "admin",
-    "user_ip": "192.168.1.100",
+    "owner_id": "789",
+    "owner_role": "admin",
+    "owner_ip": "192.168.1.100",
+    "owner_type": "user",
     "ownership_id": "1b08116e-74ff-4e71-8a17-26011cfea33f",
   }
 }
@@ -157,9 +161,10 @@ ID da conta quando zero é uma nova conta criada o banco de dados irá gerar um 
   "metadata": {
     "event_schema_version": "1.0",
     "environment": "production",
-    "user_id": "789",
-    "user_role": "admin",
-    "user_ip": "192.168.1.100",
+    "owner_id": "789",
+    "owner_role": "admin",
+    "owner_ip": "192.168.1.100",
+    "owner_type": "user",
     "ownership_id": "1b08116e-74ff-4e71-8a17-26011cfea33f",
   }
 }
@@ -184,9 +189,10 @@ ID da conta quando zero é uma nova conta criada o banco de dados irá gerar um 
   "metadata": {
     "event_schema_version": "1.0",
     "environment": "production",
-    "user_id": "789",
-    "user_role": "admin",
-    "user_ip": "192.168.1.100",
+    "owner_id": "789",
+    "owner_role": "admin",
+    "owner_ip": "192.168.1.100",
+    "owner_type": "user",
     "ownership_id": "1b08116e-74ff-4e71-8a17-26011cfea33f",
   }
 }
@@ -211,9 +217,10 @@ ID da conta quando zero é uma nova conta criada o banco de dados irá gerar um 
   "metadata": {
     "event_schema_version": "1.0",
     "environment": "production",
-    "user_id": "789",
-    "user_role": "admin",
-    "user_ip": "192.168.1.100",
+    "owner_id": "789",
+    "owner_role": "admin",
+    "owner_ip": "192.168.1.100",
+    "owner_type": "user",
     "ownership_id": "1b08116e-74ff-4e71-8a17-26011cfea33f",
   }
 }
@@ -236,9 +243,10 @@ ID da conta quando zero é uma nova conta criada o banco de dados irá gerar um 
   "metadata": {
     "event_schema_version": "1.0",
     "environment": "production",
-    "user_id": "789",
-    "user_role": "admin",
-    "user_ip": "192.168.1.100",
+    "owner_id": "789",
+    "owner_role": "admin",
+    "owner_ip": "192.168.1.100",
+    "owner_type": "user",
     "ownership_id": "1b08116e-74ff-4e71-8a17-26011cfea33f",
   }
 }
@@ -261,9 +269,10 @@ ID da conta quando zero é uma nova conta criada o banco de dados irá gerar um 
   "metadata": {
     "event_schema_version": "1.0",
     "environment": "production",
-    "user_id": "789",
-    "user_role": "admin",
-    "user_ip": "192.168.1.100",
+    "owner_id": "789",
+    "owner_role": "admin",
+    "owner_ip": "192.168.1.100",
+    "owner_type": "user",
     "ownership_id": "1b08116e-74ff-4e71-8a17-26011cfea33f",
   }
 }
@@ -286,9 +295,10 @@ ID da conta quando zero é uma nova conta criada o banco de dados irá gerar um 
   "metadata": {
     "event_schema_version": "1.0",
     "environment": "production",
-    "user_id": "789",
-    "user_role": "admin",
-    "user_ip": "192.168.1.100",
+    "owner_id": "789",
+    "owner_role": "admin",
+    "owner_ip": "192.168.1.100",
+    "owner_type": "user",
     "ownership_id": "1b08116e-74ff-4e71-8a17-26011cfea33f",
   }
 }
