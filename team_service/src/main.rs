@@ -1,4 +1,5 @@
 mod db;
+mod enviroment;
 mod models;
 mod repository;
 mod use_case;
@@ -12,7 +13,7 @@ use uuid::Uuid;
 async fn main() {
     let ownership_id = Uuid::new_v4();
     let trace_id = Uuid::new_v4();
-    let name = "Company Account Example 2".to_string();
+    let name = "Company Account Example".to_string();
     let document_registry = "123456789".to_string();
 
     let dto = AccountCreateDto::new(ownership_id, trace_id, name, document_registry);
