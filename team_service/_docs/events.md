@@ -38,8 +38,6 @@ ID da conta quando zero é uma nova conta criada o banco de dados irá gerar um 
   "timestamp": "2024-06-22T12:00:00Z",
   "event_type": "account.created",
   "payload": {
-    "ownership_id": "efbdde46-d84e-4810-8ef4-4549b26e434e",
-    "trace_id": "c9461f51-cad3-4b05-8973-65f1c9389e32",
     "id": 0,
     "public_id": "a51f25d8-9be0-468c-9bd4-2b16866a57c6",
     "name": "Marcelo Fabiano",
@@ -52,10 +50,13 @@ ID da conta quando zero é uma nova conta criada o banco de dados irá gerar um 
   "metadata": {
     "event_schema_version": "1.0",
     "environment": "production",
-    "owner_id": "789",
-    "owner_role": "admin",
-    "owner_ip": "192.168.1.100",
-    "owner_type": "user",
+    "owner": {
+      "id": 343,
+      "public_id": "42b0e0c8-9a93-429e-be47-72b70db57535",
+      "role": "admin",
+      "ip": "192.168.1.100",
+      "type": "user",
+    }
     "ownership_id": "1b08116e-74ff-4e71-8a17-26011cfea33f",
   }
 }

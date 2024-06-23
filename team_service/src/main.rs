@@ -1,34 +1,84 @@
 mod db;
-mod enviroment;
+mod environment;
+mod event;
+mod kafka;
 mod models;
 mod repository;
 mod use_case;
 
-use models::AccountCreateDto;
-use repository::AccountRepository;
-use use_case::CreateAccount;
+use crate::environment::Environment as Env;
+use crate::event::account_created_event::OwnerType;
+use crate::event::AccountCreatedEvent;
+use crate::kafka::create_producer;
+use crate::models::AccountCreateDto;
+use crate::repository::AccountRepository;
+use crate::use_case::CreateAccount;
+use db::connect;
+use event::account_created_event::{Owner, Payload};
 use uuid::Uuid;
 
 #[tokio::main]
 async fn main() {
+    let env = Env::load();
+
+    let pool = connect(&env).await.expect("Failed to connect to database");
+
+    let producer = create_producer(&env);
+
+    let repository = AccountRepository::new(pool);
+
+    let use_case = CreateAccount::new(repository);
+
+    // Request / Fake
     let ownership_id = Uuid::new_v4();
     let trace_id = Uuid::new_v4();
-    let name = "Company Account Example".to_string();
-    let document_registry = "123456789".to_string();
+    let name = "Company Example".to_string();
+    let document_registry = "12345678909".to_string();
 
     let dto = AccountCreateDto::new(ownership_id, trace_id, name, document_registry);
 
-    let pool = db::connect().await.expect("Failed to connect to database");
-    let account_repository = AccountRepository::new(pool);
+    let result = use_case.execute(dto).await;
 
-    let create_account = CreateAccount::new(account_repository);
-
-    match create_account.execute(dto).await {
+    match result {
         Ok(account) => {
             println!("Account created: {:?}", account);
+
+            let owner = Owner {
+                id: 434,
+                public_id: Uuid::new_v4(),
+                role: "admin".to_string(),
+                ip: None,
+                owner_type: OwnerType::USER,
+            };
+
+            let payload = Payload {
+                id: account.id,
+                public_id: account.public_id,
+                name: account.name,
+                document_registry: account.document_registry,
+                created_at: account.created_at,
+                updated_at: account.updated_at,
+                disabled_at: account.disabled_at,
+                deleted_at: account.deleted_at,
+            };
+
+            let event = AccountCreatedEvent::new(payload, ownership_id, trace_id, owner);
+
+            let event_json = serde_json::to_string(&event);
+
+            match event_json {
+                Ok(event_json) => {
+                    println!("Event Prepare: {:?}", event_json);
+
+                    // Send to Kafka
+                }
+                Err(e) => {
+                    println!("Error: {:?}", e);
+                }
+            }
         }
         Err(e) => {
-            println!("Error creating account: {:?}", e);
+            println!("Error: {:?}", e);
         }
     }
 }

@@ -1,6 +1,6 @@
-use crate::environment::Env;
+use crate::environment::Environment as Env;
 use rdkafka::config::ClientConfig;
-use rdkafka::producer::{FutureProducer, FutureRecord};
+use rdkafka::producer::FutureProducer;
 
 pub fn create_producer(env: &Env) -> FutureProducer {
     let kafka_broker = &env.kafka_broker;
