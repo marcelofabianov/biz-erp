@@ -28,16 +28,16 @@ impl AccountCreateDto {
 
 #[derive(Debug, Serialize, Deserialize, FromRow)]
 pub struct Account {
-    ownership_id: Uuid,
-    trace_id: Uuid,
-    id: u32,
-    public_id: Uuid,
-    name: String,
-    document_registry: String,
-    created_at: DateTime<Utc>,
-    updated_at: DateTime<Utc>,
-    disabled_at: Option<DateTime<Utc>>,
-    deleted_at: Option<DateTime<Utc>>,
+    pub ownership_id: Uuid,
+    pub trace_id: Uuid,
+    pub id: i32,
+    pub public_id: Uuid,
+    pub name: String,
+    pub document_registry: String,
+    pub created_at: DateTime<Utc>,
+    pub updated_at: DateTime<Utc>,
+    pub disabled_at: Option<DateTime<Utc>>,
+    pub deleted_at: Option<DateTime<Utc>>,
 }
 
 impl Account {
