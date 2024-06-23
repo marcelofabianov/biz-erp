@@ -26,6 +26,8 @@ Eventos emitidos por este serviço.
 
 Os eventos emitidos devem seguir um schema específico.
 
+ID da conta quando zero é uma nova conta criada o banco de dados irá gerar um ID
+
 `account.created`
 
 ```json
@@ -36,10 +38,16 @@ Os eventos emitidos devem seguir um schema específico.
   "timestamp": "2024-06-22T12:00:00Z",
   "event_type": "account.created",
   "payload": {
-    "id": 123,
-    "public_id": "123e4567-e89b-12d3-a456-426614174000",
-    "document_registry": "12345678900",
-    "name": "John Doe"
+    "ownership_id": "efbdde46-d84e-4810-8ef4-4549b26e434e",
+    "trace_id": "c9461f51-cad3-4b05-8973-65f1c9389e32",
+    "id": 0,
+    "public_id": "a51f25d8-9be0-468c-9bd4-2b16866a57c6",
+    "name": "Marcelo Fabiano",
+    "document_registry": "123456789",
+    "created_at": "2024-06-23T00:58:12.056414Z",
+    "updated_at": "2024-06-23T00:58:12.056415Z",
+    "disabled_at": null,
+    "deleted_at": null
   },
   "metadata": {
     "event_schema_version": "1.0",
@@ -47,9 +55,10 @@ Os eventos emitidos devem seguir um schema específico.
     "user_id": "789",
     "user_role": "admin",
     "user_ip": "192.168.1.100",
-    "ownership_id": "1b08116e-74ff-4e71-8a17-26011cfea33f",
+    "ownership_id": "1b08116e-74ff-4e71-8a17-26011cfea33f"
   }
 }
+
 ```
 
 `account.updated`
