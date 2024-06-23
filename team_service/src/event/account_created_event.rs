@@ -1,7 +1,4 @@
-// src/event/account_created_event.rs
-
-use crate::environment::Env;
-use crate::event::schema::{Metadata, Owner};
+use crate::environment::Environment as Env;
 use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
 use uuid::Uuid;
@@ -54,12 +51,17 @@ pub struct AccountCreatedEvent {
 
 impl AccountCreatedEvent {
     pub fn new(payload: Payload, ownership_id: Uuid, trace_id: Uuid, owner: Owner) -> Self {
+        let env = Env::load();
+
         let timestamp = Utc::now();
-        let event_type = Env::kafka_topic_prefix.clone() + "account.created";
-        let producer_service = Env::producer_service_name.clone();
-        let producer_service_id = Uuid::parse_str(&Env::producer_service_id).unwrap_or_default();
-        let event_schema_version = Env::event_schema_version.clone();
-        let environment = Env::environment.clone();
+        let event_type = format!(
+            "{}.{}.{}",
+            env.kafka_topic_prefix, env.event_schema_version, "account.created"
+        );
+        let producer_service = env.producer_service_name.clone();
+        let producer_service_id = Uuid::parse_str(&env.producer_service_id).unwrap_or_default();
+        let event_schema_version = env.event_schema_version.clone();
+        let environment = env.environment.clone();
 
         let metadata = Metadata {
             event_schema_version,
