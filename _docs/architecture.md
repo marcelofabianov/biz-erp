@@ -119,6 +119,36 @@ Os metadados são informações adicionais que oferecem contexto e detalhes rele
 - **event_schema_version**: Versão do esquema do evento.
 - **ownership_id**: ID do proprietário dos dados relacionados ao evento. Para comprimento das normativas do LGPD.
 
+Exemplo de um evento:
+
+```json
+{
+  "producer_service": "team_service",
+  "producer_service_id": "123e4567-e89b-12d3-a456-426614174000",
+  "trace_id": "7b3bf470-9456-11e8-9eb6-529269fb1459",
+  "timestamp": "2024-06-22T12:00:00Z",
+  "event_type": "account.created",
+  "payload": {
+    "id": 123,
+    "public_id": "123e4567-e89b-12d3-a456-426614174000",
+    "document_registry": "12345678900",
+    "name": "John Doe"
+  },
+  "metadata": {
+    "event_schema_version": "1.0",
+    "environment": "production",
+    "user_id": "789",
+    "user_role": "admin",
+    "user_ip": "192.168.1.100",
+    "ownership_id": "1b08116e-74ff-4e71-8a17-26011cfea33f",
+  }
+}
+```
+
+O evento é `account.created` e contém informações sobre a criação de uma conta, como o ID, o nome e o registro do documento. Os metadados incluem detalhes sobre o ambiente, o usuário que gerou o evento e o ID do proprietário dos dados relacionados ao evento.
+
+O microservice audit será responsável por consumir os eventos do kafka publicados no topic `audit` e armazená-los em um banco de dados DynamoDB ou MongoDB. Após poderá acrescentar mais informações sobre o evento, como o ID do proprietário dos dados, para garantir a conformidade com as normativas de privacidade de dados, como o LGPD e por fim informação do registro como `is_active`, `version`, `action_type` e `action_at`.
+
 ## Microservice Audit e Tabela Ownership
 
 O Microservice Audit, responsável por registrar todos os eventos, terá uma tabela ownerships dedicada para armazenar detalhes adicionais sobre o proprietário dos dados. Esta abordagem organiza de forma estruturada as informações necessárias para o cumprimento das normativas de privacidade de dados, como o LGPD.
