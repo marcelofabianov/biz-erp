@@ -16,3 +16,4 @@ sqlx = { version = "0.7", features = [
 ] }
 tokio = { version = "1.38.0", features = ["full"] }
 uuid = { version = "1.8.0", features = ["serde", "v4"] }
+rdkafka = "0.36"

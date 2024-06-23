@@ -1,3 +1,4 @@
+use crate::environment::Env;
 use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
 use uuid::Uuid;
@@ -43,11 +44,11 @@ impl AccountCreatedEvent {
         producer_service: String,
         producer_service_id: Uuid,
         trace_id: Uuid,
-        event_type: String,
         payload: Payload,
         metadata: Metadata,
     ) -> Self {
         let timestamp = Utc::now();
+        let event_type = Env::kafka_topic_prefix + "account.created";
 
         AccountCreatedEvent {
             producer_service,
