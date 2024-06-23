@@ -40,10 +40,6 @@ pub struct Account {
     updated_at: DateTime<Utc>,
     disabled_at: Option<DateTime<Utc>>,
     deleted_at: Option<DateTime<Utc>>,
-    action_type: ActionTypeEnum,
-    action_at: DateTime<Utc>,
-    version: u32,
-    status: bool,
 }
 
 impl Account {
@@ -59,10 +55,6 @@ impl Account {
             updated_at: Utc::now(),
             disabled_at: None,
             deleted_at: None,
-            action_type: ActionTypeEnum::NEW,
-            action_at: Utc::now(),
-            version: 0,
-            status: true,
         }
     }
 }
