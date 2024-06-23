@@ -3,8 +3,6 @@ use serde::{Deserialize, Serialize};
 use sqlx::prelude::FromRow;
 use uuid::Uuid;
 
-use crate::models::ActionTypeEnum;
-
 pub struct AccountCreateDto {
     pub ownership_id: Uuid,
     pub trace_id: Uuid,
