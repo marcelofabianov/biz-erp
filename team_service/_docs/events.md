@@ -32,275 +32,33 @@ ID da conta quando zero é uma nova conta criada o banco de dados irá gerar um 
 
 ```json
 {
-  "producer_service": "team_service",
-  "producer_service_id": "123e4567-e89b-12d3-a456-426614174000",
-  "trace_id": "7b3bf470-9456-11e8-9eb6-529269fb1459",
-  "timestamp": "2024-06-22T12:00:00Z",
-  "event_type": "account.created",
+  "topic_name": "team-service.account.created.v1",
+  "producer_service": "team-service",
+  "producer_service_id": "3b4a7939-6e73-48c9-9f2a-a3f7a929c50a",
+  "trace_id": "92252b34-78bb-44fb-823c-32652ef852ac",
+  "timestamp": "2024-06-24T08:59:51.390287887Z",
+  "event_type": "team-service.v1.account.created",
   "payload": {
     "id": 0,
-    "public_id": "a51f25d8-9be0-468c-9bd4-2b16866a57c6",
-    "name": "Marcelo Fabiano",
-    "document_registry": "123456789",
-    "created_at": "2024-06-23T00:58:12.056414Z",
-    "updated_at": "2024-06-23T00:58:12.056415Z",
+    "public_id": "f77b03f7-38e8-4060-ada8-9cd310f1b695",
+    "name": "Company Example",
+    "document_registry": "12345678909",
+    "created_at": "2024-06-24T08:59:51.388166054Z",
+    "updated_at": "2024-06-24T08:59:51.388168179Z",
     "disabled_at": null,
     "deleted_at": null
   },
   "metadata": {
-    "event_schema_version": "1.0",
-    "environment": "production",
+    "event_schema_version": "1",
+    "environment": "development",
     "owner": {
-      "id": 343,
-      "public_id": "42b0e0c8-9a93-429e-be47-72b70db57535",
+      "id": 434,
+      "public_id": "efb6517c-3ebf-4a0a-ac35-86f70c4afb52",
       "role": "admin",
-      "ip": "192.168.1.100",
-      "type": "user",
-    }
-    "ownership_id": "1b08116e-74ff-4e71-8a17-26011cfea33f",
-  }
-}
-
-```
-
-`account.updated`
-
-```json
-{
-  "producer_service": "team_service",
-  "producer_service_id": "123e4567-e89b-12d3-a456-426614174000",
-  "trace_id": "7b3bf470-9456-11e8-9eb6-529269fb1459",
-  "timestamp": "2024-06-22T12:00:00Z",
-  "event_type": "account.updated",
-  "payload": {
-    "id": 123,
-    "public_id": "123e4567-e89b-12d3-a456-426614174000",
-    "document_registry": "12345678900",
-    "name": "John Doe"
-  },
-  "metadata": {
-    "event_schema_version": "1.0",
-    "environment": "production",
-    "owner_id": "789",
-    "owner_role": "admin",
-    "owner_ip": "192.168.1.100",
-    "owner_type": "user",
-    "ownership_id": "1b08116e-74ff-4e71-8a17-26011cfea33f",
-  }
-}
-```
-
-`account.removed`
-
-```json
-{
-  "producer_service": "team_service",
-  "producer_service_id": "123e4567-e89b-12d3-a456-426614174000",
-  "trace_id": "7b3bf470-9456-11e8-9eb6-529269fb1459",
-  "timestamp": "2024-06-22T12:00:00Z",
-  "event_type": "account.removed",
-  "payload": {
-    "id": 123,
-    "public_id": "123e4567-e89b-12d3-a456-426614174000",
-    "document_registry": "12345678900",
-    "deleted_at": "2024-06-22T12:00:00Z"
-  },
-  "metadata": {
-    "event_schema_version": "1.0",
-    "environment": "production",
-    "owner_id": "789",
-    "owner_role": "admin",
-    "owner_ip": "192.168.1.100",
-    "owner_type": "user",
-    "ownership_id": "1b08116e-74ff-4e71-8a17-26011cfea33f",
-  }
-}
-```
-
-`account.disabled`
-
-```json
-{
-  "producer_service": "team_service",
-  "producer_service_id": "123e4567-e89b-12d3-a456-426614174000",
-  "trace_id": "7b3bf470-9456-11e8-9eb6-529269fb1459",
-  "timestamp": "2024-06-22T12:00:00Z",
-  "event_type": "account.disabled",
-  "payload": {
-    "id": 123,
-    "public_id": "123e4567-e89b-12d3-a456-426614174000",
-    "document_registry": "12345678900",
-    "disabled_at": "2024-06-22T12:00:00Z"
-  },
-  "metadata": {
-    "event_schema_version": "1.0",
-    "environment": "production",
-    "owner_id": "789",
-    "owner_role": "admin",
-    "owner_ip": "192.168.1.100",
-    "owner_type": "user",
-    "ownership_id": "1b08116e-74ff-4e71-8a17-26011cfea33f",
-  }
-}
-```
-
-`account.enabled`
-
-```json
-{
-  "producer_service": "team_service",
-  "producer_service_id": "123e4567-e89b-12d3-a456-426614174000",
-  "trace_id": "7b3bf470-9456-11e8-9eb6-529269fb1459",
-  "timestamp": "2024-06-22T12:00:00Z",
-  "event_type": "account.enabled",
-  "payload": {
-    "id": 123,
-    "public_id": "123e4567-e89b-12d3-a456-426614174000",
-    "document_registry": "12345678900",
-    "disabled_at": null
-  },
-  "metadata": {
-    "event_schema_version": "1.0",
-    "environment": "production",
-    "owner_id": "789",
-    "owner_role": "admin",
-    "owner_ip": "192.168.1.100",
-    "owner_type": "user",
-    "ownership_id": "1b08116e-74ff-4e71-8a17-26011cfea33f",
-  }
-}
-```
-
-`person.created`
-
-```json
-{
-  "producer_service": "team_service",
-  "producer_service_id": "123e4567-e89b-12d3-a456-426614174000",
-  "trace_id": "7b3bf470-9456-11e8-9eb6-529269fb1459",
-  "timestamp": "2024-06-22T12:00:00Z",
-  "event_type": "person.created",
-  "payload": {
-    "id": 123,
-    "public_id": "123e4567-e89b-12d3-a456-426614174000",
-    "account_id": 123,
-    "team_id": 123,
-    "role_id": 123
-  },
-  "metadata": {
-    "event_schema_version": "1.0",
-    "environment": "production",
-    "owner_id": "789",
-    "owner_role": "admin",
-    "owner_ip": "192.168.1.100",
-    "owner_type": "user",
-    "ownership_id": "1b08116e-74ff-4e71-8a17-26011cfea33f",
-  }
-}
-```
-
-`person.updated`
-
-```json
-{
-  "producer_service": "team_service",
-  "producer_service_id": "123e4567-e89b-12d3-a456-426614174000",
-  "trace_id": "7b3bf470-9456-11e8-9eb6-529269fb1459",
-  "timestamp": "2024-06-22T12:00:00Z",
-  "event_type": "person.updated",
-  "payload": {
-    "id": 123,
-    "public_id": "123e4567-e89b-12d3-a456-426614174000",
-    "account_id": 123,
-    "team_id": 123,
-    "role_id": 123
-  },
-  "metadata": {
-    "event_schema_version": "1.0",
-    "environment": "production",
-    "owner_id": "789",
-    "owner_role": "admin",
-    "owner_ip": "192.168.1.100",
-    "owner_type": "user",
-    "ownership_id": "1b08116e-74ff-4e71-8a17-26011cfea33f",
-  }
-}
-```
-
-`person.removed`
-
-```json
-{
-  "producer_service": "team_service",
-  "producer_service_id": "123e4567-e89b-12d3-a456-426614174000",
-  "trace_id": "7b3bf470-9456-11e8-9eb6-529269fb1459",
-  "timestamp": "2024-06-22T12:00:00Z",
-  "event_type": "person.removed",
-  "payload": {
-    "id": 123,
-    "public_id": "123e4567-e89b-12d3-a456-426614174000",
-    "deleted_at": "2024-06-22T12:00:00Z"
-  },
-  "metadata": {
-    "event_schema_version": "1.0",
-    "environment": "production",
-    "owner_id": "789",
-    "owner_role": "admin",
-    "owner_ip": "192.168.1.100",
-    "owner_type": "user",
-    "ownership_id": "1b08116e-74ff-4e71-8a17-26011cfea33f",
-  }
-}
-```
-
-`person.disabled`
-
-```json
-{
-  "producer_service": "team_service",
-  "producer_service_id": "123e4567-e89b-12d3-a456-426614174000",
-  "trace_id": "7b3bf470-9456-11e8-9eb6-529269fb1459",
-  "timestamp": "2024-06-22T12:00:00Z",
-  "event_type": "person.disabled",
-  "payload": {
-    "id": 123,
-    "public_id": "123e4567-e89b-12d3-a456-426614174000",
-    "disabled_at": "2024-06-22T12:00:00Z"
-  },
-  "metadata": {
-    "event_schema_version": "1.0",
-    "environment": "production",
-    "owner_id": "789",
-    "owner_role": "admin",
-    "owner_ip": "192.168.1.100",
-    "owner_type": "user",
-    "ownership_id": "1b08116e-74ff-4e71-8a17-26011cfea33f",
-  }
-}
-```
-
-`person.enabled`
-
-```json
-{
-  "producer_service": "team_service",
-  "producer_service_id": "123e4567-e89b-12d3-a456-426614174000",
-  "trace_id": "7b3bf470-9456-11e8-9eb6-529269fb1459",
-  "timestamp": "2024-06-22T12:00:00Z",
-  "event_type": "person.enabled",
-  "payload": {
-    "id": 123,
-    "public_id": "123e4567-e89b-12d3-a456-426614174000",
-    "disabled_at": null
-  },
-  "metadata": {
-    "event_schema_version": "1.0",
-    "environment": "production",
-    "owner_id": "789",
-    "owner_role": "admin",
-    "owner_ip": "192.168.1.100",
-    "owner_type": "user",
-    "ownership_id": "1b08116e-74ff-4e71-8a17-26011cfea33f",
+      "ip": null,
+      "owner_type": "USER"
+    },
+    "ownership_id": "7b31d6ad-8f44-4f3f-b923-0fa1ae8e5c7a"
   }
 }
 ```

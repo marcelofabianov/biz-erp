@@ -40,6 +40,7 @@ pub struct Metadata {
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct AccountCreatedEvent {
+    pub topic_name: String,
     pub producer_service: String,
     pub producer_service_id: Uuid,
     pub trace_id: Uuid,
@@ -54,14 +55,17 @@ impl AccountCreatedEvent {
         let env = Env::load();
 
         let timestamp = Utc::now();
-        let event_type = format!(
-            "{}.{}.{}",
-            env.kafka_topic_prefix, env.event_schema_version, "account.created"
-        );
         let producer_service = env.producer_service_name.clone();
         let producer_service_id = Uuid::parse_str(&env.producer_service_id).unwrap_or_default();
         let event_schema_version = env.event_schema_version.clone();
         let environment = env.environment.clone();
+
+        let event_type = "account.created".to_string();
+
+        let topic_name = format!(
+            "{}.{}.v{}",
+            env.kafka_topic_prefix, event_type, env.event_schema_version
+        );
 
         let metadata = Metadata {
             event_schema_version,
@@ -71,6 +75,7 @@ impl AccountCreatedEvent {
         };
 
         AccountCreatedEvent {
+            topic_name,
             producer_service,
             producer_service_id,
             trace_id,

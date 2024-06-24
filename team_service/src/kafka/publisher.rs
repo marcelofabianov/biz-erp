@@ -1,21 +1,36 @@
+use rdkafka::config::ClientConfig;
 use rdkafka::producer::{FutureProducer, FutureRecord};
+use rdkafka::util::Timeout;
+use std::time::Duration;
 
-pub async fn publish_event(
-    producer: &FutureProducer,
-    topic: &str,
-    event_json: String,
-    key: Option<&str>,
-) {
-    let mut record = FutureRecord::to(topic).payload(&event_json);
+pub struct Publisher {
+    producer: FutureProducer,
+    topic: String,
+}
 
-    if let Some(k) = key {
-        record = record.key(k);
+impl Publisher {
+    pub fn new(brokers: &str, topic: &str) -> Self {
+        let producer: FutureProducer = ClientConfig::new()
+            .set("bootstrap.servers", brokers)
+            .set("message.timeout.ms", "5000")
+            .create()
+            .expect("Producer creation error");
+
+        Publisher {
+            producer,
+            topic: topic.to_string(),
+        }
     }
 
-    if let Err((e, _)) = producer
-        .send(record, std::time::Duration::from_secs(0))
-        .await
-    {
-        eprintln!("Failed to publish event: {:?}", e);
+    pub async fn send(&self, event_json: &str) -> Result<(), String> {
+        let record = FutureRecord::to(&self.topic)
+            .payload(event_json)
+            .key("default_key");
+
+        self.producer
+            .send(record, Timeout::After(Duration::from_secs(1)))
+            .await
+            .map(|_| ())
+            .map_err(|(err, _)| format!("Kafka error: {:?}", err))
     }
 }

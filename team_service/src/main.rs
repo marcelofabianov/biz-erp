@@ -9,7 +9,7 @@ mod use_case;
 use crate::environment::Environment as Env;
 use crate::event::account_created_event::OwnerType;
 use crate::event::AccountCreatedEvent;
-use crate::kafka::create_producer;
+use crate::kafka::Publisher;
 use crate::models::AccountCreateDto;
 use crate::repository::AccountRepository;
 use crate::use_case::CreateAccount;
@@ -22,8 +22,6 @@ async fn main() {
     let env = Env::load();
 
     let pool = connect(&env).await.expect("Failed to connect to database");
-
-    let producer = create_producer(&env);
 
     let repository = AccountRepository::new(pool);
 
@@ -41,8 +39,6 @@ async fn main() {
 
     match result {
         Ok(account) => {
-            println!("Account created: {:?}", account);
-
             let owner = Owner {
                 id: 434,
                 public_id: Uuid::new_v4(),
@@ -70,7 +66,12 @@ async fn main() {
                 Ok(event_json) => {
                     println!("Event Prepare: {:?}", event_json);
 
-                    // Send to Kafka
+                    let publisher = Publisher::new(&env.kafka_broker, &event.topic_name);
+
+                    match publisher.send(&event_json).await {
+                        Ok(_) => println!("Event sent successfully"),
+                        Err(e) => println!("Error sending event: {:?}", e),
+                    }
                 }
                 Err(e) => {
                     println!("Error: {:?}", e);
