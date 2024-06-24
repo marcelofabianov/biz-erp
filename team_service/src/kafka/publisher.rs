@@ -5,26 +5,22 @@ use std::time::Duration;
 
 pub struct Publisher {
     producer: FutureProducer,
-    topic: String,
 }
 
 impl Publisher {
-    pub fn new(brokers: &str, topic: &str) -> Self {
+    pub fn new(brokers: &str) -> Self {
         let producer: FutureProducer = ClientConfig::new()
             .set("bootstrap.servers", brokers)
             .set("message.timeout.ms", "5000")
             .create()
             .expect("Producer creation error");
 
-        Publisher {
-            producer,
-            topic: topic.to_string(),
-        }
+        Publisher { producer }
     }
 
-    pub async fn send(&self, event_json: &str) -> Result<(), String> {
-        let record = FutureRecord::to(&self.topic)
-            .payload(event_json)
+    pub async fn send(&self, event_json: String, topic: String) -> Result<(), String> {
+        let record = FutureRecord::to(topic.as_str())
+            .payload(&event_json)
             .key("default_key");
 
         self.producer

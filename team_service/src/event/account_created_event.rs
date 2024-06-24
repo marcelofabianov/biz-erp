@@ -15,13 +15,13 @@ pub struct Payload {
     pub deleted_at: Option<DateTime<Utc>>,
 }
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 pub enum OwnerType {
     USER,
     SERVICE,
 }
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct Owner {
     pub id: i32,
     pub public_id: Uuid,
@@ -57,7 +57,7 @@ impl AccountCreatedEvent {
         let timestamp = Utc::now();
         let producer_service = env.producer_service_name.clone();
         let producer_service_id = Uuid::parse_str(&env.producer_service_id).unwrap_or_default();
-        let event_schema_version = env.event_schema_version.clone();
+        let event_schema_version = "v1".to_string();
         let environment = env.environment.clone();
 
         let event_type = "account.created".to_string();
