@@ -1,4 +1,4 @@
-use crate::event::account_created_event::{AccountCreatedEvent, Owner, Payload};
+use crate::event::{AccountCreatedEvent, Owner, Payload};
 use crate::kafka::Publisher;
 use crate::models::{Account, AccountCreateDto};
 use crate::repository::AccountRepository;
@@ -21,7 +21,7 @@ impl CreateAccount {
         &self,
         dto: AccountCreateDto,
         owner: Owner,
-    ) -> Result<(), Box<dyn Error + Send + Sync>> {
+    ) -> Result<Account, Box<dyn Error + Send + Sync>> {
         let account = Account::new(dto);
 
         match self.repository.create(&account).await {
@@ -34,16 +34,16 @@ impl CreateAccount {
         &self,
         account: Account,
         owner: Owner,
-    ) -> Result<(), Box<dyn Error + Send + Sync>> {
+    ) -> Result<Account, Box<dyn Error + Send + Sync>> {
         let payload = Payload {
-            id: account.id,
-            public_id: account.public_id,
-            name: account.name,
-            document_registry: account.document_registry,
-            created_at: account.created_at,
-            updated_at: account.updated_at,
-            disabled_at: account.disabled_at,
-            deleted_at: account.deleted_at,
+            id: account.id.clone(),
+            public_id: account.public_id.clone(),
+            name: account.name.clone(),
+            document_registry: account.document_registry.clone(),
+            created_at: account.created_at.clone(),
+            updated_at: account.updated_at.clone(),
+            disabled_at: account.disabled_at.clone(),
+            deleted_at: account.deleted_at.clone(),
         };
 
         let event =
@@ -53,6 +53,6 @@ impl CreateAccount {
 
         self.publisher.send(event_json, event.topic_name).await?;
 
-        Ok(())
+        Ok(account)
     }
 }

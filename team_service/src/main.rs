@@ -8,13 +8,12 @@ mod use_case;
 
 use crate::environment::Environment as Env;
 use crate::event::account_created_event::OwnerType;
-use crate::event::AccountCreatedEvent;
 use crate::kafka::Publisher;
 use crate::models::AccountCreateDto;
 use crate::repository::AccountRepository;
 use crate::use_case::CreateAccount;
 use db::connect;
-use event::account_created_event::{Owner, Payload};
+use event::account_created_event::Owner;
 use uuid::Uuid;
 
 #[tokio::main]
