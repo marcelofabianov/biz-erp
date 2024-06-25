@@ -1,7 +1,5 @@
 FROM rust:1.78
 
-RUN cargo install sqlx-cli --no-default-features --features postgres
-
 WORKDIR /app
 
 RUN apt-get update -yqq && \
@@ -15,8 +13,11 @@ RUN apt-get update -yqq && \
   tree \
   build-essential \
   librdkafka-dev \
+  libprotobuf-dev \
+  protobuf-compiler \
   && rm -rf /var/lib/apt/lists/*
 
+RUN cargo install sqlx-cli --no-default-features --features postgres
 RUN cargo install cargo-watch
 
 COPY . .
