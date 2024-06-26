@@ -14,11 +14,10 @@ RUN apt-get update -yqq && \
   build-essential \
   librdkafka-dev \
   libprotobuf-dev \
-  protobuf-compiler \
-  && rm -rf /var/lib/apt/lists/*
+  protobuf-compiler && \
+  rm -rf /var/lib/apt/lists/*
 
-RUN cargo install sqlx-cli --no-default-features --features postgres
-RUN cargo install cargo-watch
+RUN cargo install sqlx-cli && cargo install cargo-watch
 
 COPY . .
 

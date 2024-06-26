@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+package account_service;
+
+message Account {
+  string ownership_id = 1;
+  string trace_id = 2;
+  string id = 3;
+  string public_id = 4;
+  string name = 5;
+  string document_registry = 6;
+  string created_at = 7;
+  string updated_at = 8;
+  string disabled_at = 9;
+}
+
+message ListAccountsRequest {}
+
+message ListAccountsResponse {
+  repeated Account accounts = 1;
+}
+
+message GetAccountRequest {
+  string id = 1;
+}
+
+message GetAccountResponse {
+  Account account = 1;
+}
+
+message CreateAccountRequest {
+  string name = 5;
+  string document_registry = 6;
+}
+
+message CreateAccountResponse {
+  Account account = 1;
+}
+
+message UpdateAccountRequest {
+  string id = 1;
+  string name = 5;
+  string document_registry = 6;
+}
+
+message UpdateAccountResponse {
+  Account account = 1;
+}
+
+message DeleteAccountRequest {
+  string id = 1;
+}
+
+message DeleteAccountResponse {}
