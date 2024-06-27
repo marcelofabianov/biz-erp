@@ -30,8 +30,6 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: username
       MONGO_INITDB_ROOT_PASSWORD: password
-      MONGO_INITDB_DATABASE: audit_mongodb
-    command: mongod --auth
     networks:
       - biz_audit_network
 
