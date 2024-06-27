@@ -19,7 +19,7 @@ Cada microservice tem sua própria documentação, acesse para mais detalhes:
 - [Notifications Service](notifications_service/README.md) `Go` `MongoDB`
 - [Identity Provider Service](identity_provider_service/README.md) `Go` `Postgres`
 - [Team Service](team_service/README.md) `Rust` `Postgres`
-- [Audit Service](audit_service/README.md) `Rust` `DynamoDB`
+- [Audit Service](audit_service/README.md) `Go` `MongoDB`
 
 ### Estudos em aberto
 
