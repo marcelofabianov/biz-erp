@@ -1,6 +1,6 @@
-FROM golang:1.23rc-bookworm
+FROM golang:1.23rc1-bookworm
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
 RUN apt-get update -yqq && \
   apt-get upgrade -y && \
@@ -19,9 +19,6 @@ RUN apt-get update -yqq && \
 
 COPY . .
 
-RUN go mod download && go mod verify
-RUN go build -v -o /usr/src/app ./...
-
 EXPOSE 8080
 
-CMD ["./app"]
+CMD ["tail", "-f", "/dev/null"]
